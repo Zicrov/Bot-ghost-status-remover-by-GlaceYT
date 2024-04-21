@@ -36,7 +36,7 @@ app.listen(port, () => {
 });
 
 
-const statusMessages = ["PLAYING","MUSIC"];
+const statusMessages = ["Managing AR"]; // Only "Managing AR" message
 
 
 let currentIndex = 0;
