@@ -36,7 +36,7 @@ app.listen(port, () => {
 });
 
 
-const statusMessages = ["PLAYING","MUSIC"];
+const statusMessages = ["Managing AR"]; // Only "Managing AR" message
 
 
 let currentIndex = 0;
@@ -70,7 +70,6 @@ GIT : https://github.com/RTX-GAMINGG/Bot-ghost-status-remover-by-RTX
 
 function updateStatusAndSendMessages() {
   const currentStatus = statusMessages[currentIndex];
-  const nextStatus = statusMessages[(currentIndex + 1) % statusMessages.length];
 
   client.user.setPresence({
     activities: [{ name: currentStatus, type: ActivityType.Custom}],
@@ -86,8 +85,6 @@ function updateStatusAndSendMessages() {
   } else {
 
   }
-
-  currentIndex = (currentIndex + 1) % statusMessages.length;
 }
 
 client.once('ready', () => {
@@ -96,9 +93,7 @@ client.once('ready', () => {
   console.log(`\x1b[36m%s\x1b[0m`, `|    ❤️WELCOME TO 2024`);
   updateStatusAndSendMessages();
 
-  setInterval(() => {
-    updateStatusAndSendMessages();
-  }, 10000);
+  // Remove the setInterval as we don't need to update the status periodically
 });
 
 login();
